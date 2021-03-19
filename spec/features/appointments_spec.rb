@@ -6,17 +6,17 @@ describe "appointments", type:  :feature do
     @homer = Patient.create({name: "Homer Simpson", age:38})
     @appointment = Appointment.create({appointment_datetime: DateTime.new(2016, 03, 15, 18, 00, 0), patient: @homer, doctor: @hawkeye})
   end
-
+  # showpage
   it "should display an appointment's doctor" do
     visit appointment_path(@appointment)
     expect(page).to have_link("Hawkeye Pierce", href: doctor_path(@hawkeye))
   end
-
+  # showpage
   it "should display an appointment's patient" do
     visit appointment_path(@appointment)
     expect(page).to have_link("Homer Simpson", href: patient_path(@homer))
   end
-
+  # showpage
   it 'should display an appointment\'s date and time' do
     visit appointment_path(@appointment)
     expect(page).to have_text('March 15, 2016')
